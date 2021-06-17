@@ -14,14 +14,14 @@ function preload(){
 function setup() {
   database = firebase.database()
   console.log(database);
-  createCanvas(1500,700);
+  createCanvas(1300,600);
 
   balloon=createSprite(250,450,150,150);
   balloon.addAnimation("hotAirBalloon",balloonImage1);
   balloon.scale=0.5;
   textSize(20);
   var balloonPosition=database.ref('balloon/height');
-  balloonPosition.on("value",readPosition, showError);
+  balloonPosition.on("value",readHeight, showError);
 
 function readHeight(data){
   height = data.val();
